@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Number:
+  = @table.number
+%p
+  %strong Max seats:
+  = @table.max_seats
+= link_to 'Edit', edit_table_path(@table)
+|
+= link_to 'Back', tables_path

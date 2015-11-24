@@ -1,0 +1,27 @@
+= form_for(@waitron) do |f|
+  - if @waitron.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@waitron.errors.count, "error")
+        prohibited this waitron from being saved:
+      %ul
+        - @waitron.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :logon
+    %br/
+    = f.text_field :logon
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :surname
+    %br/
+    = f.text_field :surname
+  .field
+    = f.label :mobile
+    %br/
+    = f.text_field :mobile
+  .actions
+    = f.submit

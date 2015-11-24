@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Listing Waitrons
+%table
+  %thead
+    %tr
+      %th Logon
+      %th Name
+      %th Surname
+      %th Mobile
+      %th{colspan: "3"}
+  %tbody
+    - @waitrons.each do |waitron|
+      %tr
+        %td= waitron.logon
+        %td= waitron.name
+        %td= waitron.surname
+        %td= waitron.mobile
+        %td= link_to 'Show', waitron
+        %td= link_to 'Edit', edit_waitron_path(waitron)
+        %td= link_to 'Destroy', waitron, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Waitron', new_waitron_path

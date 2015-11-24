@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Logon:
+  = @waitron.logon
+%p
+  %strong Name:
+  = @waitron.name
+%p
+  %strong Surname:
+  = @waitron.surname
+%p
+  %strong Mobile:
+  = @waitron.mobile
+= link_to 'Edit', edit_waitron_path(@waitron)
+|
+= link_to 'Back', waitrons_path
