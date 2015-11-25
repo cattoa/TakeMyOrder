@@ -1,4 +1,4 @@
-%p#notice= notice
+%div
 %h1 Listing Tables
 %table
   %thead
@@ -16,3 +16,5 @@
         %td= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Table', new_table_path
+%div
+  %p#notice= notice
