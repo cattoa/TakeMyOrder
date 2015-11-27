@@ -1,6 +1,5 @@
-%div
 %h1 Listing Tables
-%table
+%table.table
   %thead
     %tr
       %th Number
@@ -11,10 +10,10 @@
       %tr
         %td= table.number
         %td= table.max_seats
-        %td= link_to 'Show', table
-        %td= link_to 'Edit', edit_table_path(table)
-        %td= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show', table, class: 'btn btn-success btn-sm'
+        %td= link_to 'Edit', edit_table_path(table), class: 'btn btn-success btn-sm'
+        %td= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-sm'
 %br/
-= link_to 'New Table', new_table_path
+= link_to 'New Table', new_table_path, class: 'btn btn-success'
 %div
   %p#notice= notice

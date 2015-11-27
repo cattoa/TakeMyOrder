@@ -7,4 +7,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    = render 'shared/navigation'
+    %div.containe-fluidr#main-container
+      %div.row
+        %div.col-xs-3#sidebar
+          %h3 Take My order Todo
+
+        %div.col-xs-9#content
+          = yield

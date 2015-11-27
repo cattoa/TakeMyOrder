@@ -1,6 +1,6 @@
 %p#notice= notice
 %h1 Listing Waitrons
-%table
+%table.table
   %thead
     %tr
       %th Logon
@@ -15,8 +15,8 @@
         %td= waitron.name
         %td= waitron.surname
         %td= waitron.mobile
-        %td= link_to 'Show', waitron
-        %td= link_to 'Edit', edit_waitron_path(waitron)
-        %td= link_to 'Destroy', waitron, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show', waitron, class: 'btn btn-success btn-sm'
+        %td= link_to 'Edit', edit_waitron_path(waitron), class: 'btn btn-success btn-sm'
+        %td= link_to 'Destroy', waitron, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-sm'
 %br/
 = link_to 'New Waitron', new_waitron_path
