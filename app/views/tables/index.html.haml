@@ -1,6 +1,5 @@
-%p#notice= notice
 %h1 Listing Tables
-%table
+%table.table.table-striped.table-bordered
   %thead
     %tr
       %th Number
@@ -11,8 +10,23 @@
       %tr
         %td= table.number
         %td= table.max_seats
-        %td= link_to 'Show', table
-        %td= link_to 'Edit', edit_table_path(table)
-        %td= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to table, class: 'btn btn-success btn-sm' do
+            %i.glyphicon.glyphicon-info-sign
+            Show
+        %td
+          = link_to edit_table_path(table), class: 'btn btn-success btn-sm' do
+            %i.glyphicon.glyphicon-pencil
+            Edit
+        %td
+          = link_to table, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-sm' do
+            %i.glyphicon.glyphicon-minus-sign
+            Delete
 %br/
-= link_to 'New Table', new_table_path
+= link_to  new_table_path, class: 'btn btn-success' do
+  %i.glyphicon.glyphicon-plus-sign
+  New Table
+
+%div
+  - flash.each do |name, msg|
+    = content_tag :div, msg, class: "alert alert-#{name}"
