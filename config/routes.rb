@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  resources :menu_item_options
+  resources :menu_items
+  resources :menus
   resources :waitrons
   resources :tables
+  root 'static_pages#home'
   #root 'tables#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
