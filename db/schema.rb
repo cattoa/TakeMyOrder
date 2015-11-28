@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123222654) do
+ActiveRecord::Schema.define(version: 20151128173438) do
+
+  create_table "menu_item_options", force: :cascade do |t|
+    t.string   "code",        limit: 255
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.integer  "order",       limit: 4
+    t.string   "code",        limit: 255
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.decimal  "price",                     precision: 10
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.date     "date_from"
+    t.date     "date_to"
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "tables", force: :cascade do |t|
     t.integer  "number",     limit: 4
