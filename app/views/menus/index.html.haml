@@ -1,0 +1,36 @@
+%h1 Manage Menus
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Date from
+      %th Date to
+      %th Description
+      %th{:colspan => "3"}
+  %tbody
+    - @menus.each do |menu|
+      %tr
+        %td= menu.name
+        %td= menu.date_from
+        %td= menu.date_to
+        %td= menu.description
+        %td
+          = link_to menu, class: 'btn btn-success btn-sm' do
+            %i.glyphicon.glyphicon-info-sign
+            Show
+        %td
+          = link_to edit_menu_path(menu), class: 'btn btn-success btn-sm' do
+            %i.glyphicon.glyphicon-pencil
+            Edit
+        %td
+          = link_to menu, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-sm' do
+            %i.glyphicon.glyphicon-minus-sign
+            Delete
+%br
+= link_to  new_menu_path, class: 'btn btn-success' do
+  %i.glyphicon.glyphicon-plus-sign
+  New Menu
+
+%div
+  - flash.each do |name, msg|
+    = content_tag :div, msg, class: "alert alert-#{name}"
