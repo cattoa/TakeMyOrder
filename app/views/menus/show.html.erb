@@ -1,24 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @menu.name %>
-</p>
-
-<p>
-  <strong>Date from:</strong>
-  <%= @menu.date_from %>
-</p>
-
-<p>
-  <strong>Date to:</strong>
-  <%= @menu.date_to %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @menu.description %>
-</p>
-
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+%p#notice= notice
+%p
+%strong Name:
+= @menu.name
+%p
+%strong Date from:
+= @menu.date_from
+%p
+%strong Date to:
+= @menu.date_to
+%p
+%strong Description:
+= @menu.description
+= link_to 'Edit', edit_menu_path(@menu)
+|
+\#{link_to 'Back', menus_path}

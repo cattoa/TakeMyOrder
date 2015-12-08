@@ -15,4 +15,9 @@
 
         %div.col-xs-10#content
           = yield
+    %br
+    %div
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert alert-#{name}"
+
 

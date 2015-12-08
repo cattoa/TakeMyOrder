@@ -10,22 +10,24 @@
   %table.table.table-striped.table-bordered
     %thead
       %tr
-        %th Name
-        %th Date from
-        %th Date to
-        %th Description
-  %tbody
-    %tr
-      %td= @menu.name
+        %th.col-lg-3 Name
+        %th.col-lg-3 Date from
+        %th.col-lg-3 Date to
+        %th.col-lg-3 Description
+    %tbody
+      %tr
+        %td
+          = f.text_field :name, :class=>'form-control'
 
-      %td
-      %td
-      %td
-%br
-= link_to  new_menu_path, class: 'btn btn-success' do
-  %i.glyphicon.glyphicon-plus-sign
-  New Menu
+        %td
+          = f.date_select :date_from
+        %td
+          = f.date_select :date_to
+        %td
+          = f.text_field :description, :class=>'form-control'
+  .clear-20
+  .actions
+    = f.submit 'Save', class: 'btn btn-success pull-right'
+  .actions
+    = f.submit 'Cancel', :name => 'cancel', class: 'btn btn-danger pull-right btn-space'
 
-%div
-  - flash.each do |name, msg|
-    = content_tag :div, msg, class: "alert alert-#{name}"
