@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128173438) do
+ActiveRecord::Schema.define(version: 20151208222328) do
 
   create_table "menu_item_options", force: :cascade do |t|
     t.string   "code",        limit: 255
@@ -29,15 +29,17 @@ ActiveRecord::Schema.define(version: 20151128173438) do
     t.decimal  "price",                     precision: 10
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "menu_id",     limit: 4
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name",         limit: 255
     t.date     "date_from"
     t.date     "date_to"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description",  limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "menu_item_id", limit: 4
   end
 
   create_table "tables", force: :cascade do |t|

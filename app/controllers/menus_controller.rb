@@ -1,5 +1,13 @@
 class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :set_menu, only: [:edit, :update, :destroy ]
+
+  before_filter :check_for_cancel, :only => [:create, :update]
+
+  def check_for_cancel
+    if params[:cancel] == 'Cancel'
+      redirect_to menus_path
+    end
+  end
 
   # GET /menus
   # GET /menus.json
@@ -10,6 +18,7 @@ class MenusController < ApplicationController
   # GET /menus/1
   # GET /menus/1.json
   def show
+    redirect_to menus_path
   end
 
   # GET /menus/new
@@ -29,7 +38,7 @@ class MenusController < ApplicationController
     respond_to do |format|
       if @menu.save
         format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
-        format.json { render :show, status: :created, location: @menu }
+        format.json { render :index, status: :created, location: @menu }
       else
         format.html { render :new }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
@@ -43,7 +52,7 @@ class MenusController < ApplicationController
     respond_to do |format|
       if @menu.update(menu_params)
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
-        format.json { render :show, status: :ok, location: @menu }
+        format.json { render :index, status: :ok, location: @menu }
       else
         format.html { render :edit }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
@@ -61,6 +70,8 @@ class MenusController < ApplicationController
     end
   end
 
+  # DELETE /menus/1
+  # DELETE /menus/1.json
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu
