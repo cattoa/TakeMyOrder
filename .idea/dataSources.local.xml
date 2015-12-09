@@ -9,14 +9,14 @@
     </data-source>
     <data-source name="Rails TakeMyOrder: test" uuid="f3e4676a-2880-4235-849a-110d73c2b8ea">
       <user-name>root</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfe7dfe5dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <user-password>dfc6df9adfc5dfdadfc2df9adfc6dfcf</user-password>
       <schema-pattern>db_name_tst.*</schema-pattern>
       <default-schemas>db_name_tst.*</default-schemas>
     </data-source>
     <data-source name="Rails TakeMyOrder: production" uuid="dccef56b-ddd3-4708-8b4e-c2d8ac89c949">
       <first-sync>true</first-sync>
       <user-name>root</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfe7dfe5dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <user-password>dfc6df9adfc5dfdadfc2df9adfc6dfcf</user-password>
     </data-source>
   </component>
 </project>

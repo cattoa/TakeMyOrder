@@ -30,7 +30,3 @@
 = link_to  new_menu_path, class: 'btn btn-success' do
   %i.glyphicon.glyphicon-plus-sign
   New Menu
-
-%div
-  - flash.each do |name, msg|
-    = content_tag :div, msg, class: "alert alert-#{name}"
