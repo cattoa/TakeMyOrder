@@ -10,10 +10,10 @@
   %table.table.table-striped.table-bordered
     %thead
       %tr
-        %th.col-lg-3 Name
-        %th.col-lg-3 Date from
-        %th.col-lg-3 Date to
-        %th.col-lg-3 Description
+        %th.col-lg-2 Name
+        %th.col-lg-2 Date from
+        %th.col-lg-2 Date to
+        %th.col-lg-6 Description
     %tbody
       %tr
         %td
@@ -27,7 +27,7 @@
           = f.text_field :description, :class=>'form-control'
   .clear-20
   .actions
-    = f.submit 'Save', class: 'btn btn-success pull-right'
+    = f.submit 'Save', class: 'btn btn-success pull-left btn-space'
   .actions
-    = f.submit 'Cancel', :name => 'cancel', class: 'btn btn-danger pull-right btn-space'
+    = f.submit 'Cancel', :name => 'cancel', class: 'btn btn-danger pull-left'
 
