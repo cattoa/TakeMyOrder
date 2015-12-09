@@ -1,0 +1,16 @@
+.nested-fields
+  %tbody
+    %tr
+      %td
+        = f.number_field :order, class: "form-control", onfocus:'CreateNewObs(this);'
+
+      %td
+        = f.text_field :code, :class=>'form-control'
+      %td
+        = f.text_field :name, :class=>'form-control'
+      %td
+        = f.text_field :description, :class=>'form-control'
+      %td
+        = f.text_field :price, :class=>'form-control'
+      %td
+

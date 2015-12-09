@@ -1,9 +1,9 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:edit, :update, :destroy ]
 
-  before_filter :check_for_cancel, :only => [:create, :update]
+  before_filter :check_for_cancel_or_add, :only => [:create, :update]
 
-  def check_for_cancel
+  def check_for_cancel_or_add
     if params[:cancel] == 'Cancel'
       redirect_to menus_path
     end
