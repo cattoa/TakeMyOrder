@@ -47,7 +47,7 @@
     = f.fields_for :menu_items do |builder|
       = render 'form_menu_item', f:builder
   .actions
-    = link_to_add_association '<i class="fa-plus fa"></i> Add Observation'.html_safe, f, :menu_items,  class: 'btn btn-success pull-left btn-space'
+    = link_to_add_association '<i class="fa-plus fa"></i> Add Menu Items'.html_safe, f.menu_item
   .actions
     = f.submit 'Save', class: 'btn btn-success pull-left btn-space'
   .actions
