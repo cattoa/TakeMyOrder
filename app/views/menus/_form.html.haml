@@ -45,9 +45,9 @@
         %th.col-lg-1
 
     = f.fields_for :menu_items do |builder|
-      = render 'form_menu_item', f:builder
-  .actions
-    = link_to_add_association '<i class="fa-plus fa"></i> Add Menu Items'.html_safe, f, :menu_items, :data => {"association-insertion-method" => "before" }
+      = render 'menu_item_fields', f:builder
+  .links
+    = link_to_add_association 'link', f, :menu_items
   .actions
     = f.submit 'Save', class: 'btn btn-success pull-left btn-space'
   .actions
