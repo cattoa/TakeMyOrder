@@ -38,16 +38,15 @@
           Code
         %th.col-lg-3
           Name
-        %th.col-lg-4
+        %th.col-lg-5
           Description
         %th.col-lg-2
           Price
-        %th.col-lg-1
 
     = f.fields_for :menu_items do |builder|
       = render 'menu_item_fields', f:builder
   .links
-    = link_to_add_association 'link', f, :menu_items
+    = link_to_add_association 'Add Menu Item', f, :menu_items, class: "btn btn-primary pull-left btn-space"
   .actions
     = f.submit 'Save', class: 'btn btn-success pull-left btn-space'
   .actions
