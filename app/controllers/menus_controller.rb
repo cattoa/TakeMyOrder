@@ -7,6 +7,18 @@ class MenusController < ApplicationController
     if params[:cancel] == 'Cancel'
       redirect_to menus_path
     end
+    if params[:save_new] == 'Save'
+      @menu = Menu.find(params[:id])
+      respond_to do |format|
+        if @menu.save
+          format.html { redirect_to 'menus/edit'}
+          format.json { render :edit, status: :created, location: @menu }
+        else
+          format.html { render :new }
+          format.json { render json: @menu.errors, status: :unprocessable_entity }
+        end
+      end
+    end
   end
 
   # GET /menus
@@ -37,8 +49,8 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
-        format.json { render :index, status: :created, location: @menu }
+        format.html { redirect_to @menu, notice: 'Menu was successfully created.'}
+        format.json { render :edit, status: :created, location: @menu }
       else
         format.html { render :new }
         format.json { render json: @menu.errors, status: :unprocessable_entity }

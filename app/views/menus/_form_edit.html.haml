@@ -1,0 +1,54 @@
+= form_for(@menu) do |f|
+  - if @menu.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@menu.errors.count, "error")
+        prohibited this menu from being saved:
+      %ul
+        - @menu.errors.full_messages.each do |message|
+          %li= message
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th.col-lg-2 Name
+        %th.col-lg-3 Date from
+        %th.col-lg-3 Date to
+        %th.col-lg-4 Description
+    %tbody
+      %tr
+        %td
+          = f.text_field :name, :class=>'form-control'
+
+        %td
+          = f.date_select :date_from
+        %td
+          = f.date_select :date_to
+        %td
+          = f.text_field :description, :class=>'form-control'
+  .clear-20
+
+  %h2.page-header
+    Menu items
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th.col-lg-1
+          Sequence Order
+        %th.col-lg-1
+          Code
+        %th.col-lg-3
+          Name
+        %th.col-lg-5
+          Description
+        %th.col-lg-1
+          Price
+        %th.col-lg-1
+
+  = f.fields_for :menu_items, @menu.menu_items.sort_by(&:order) do |builder|
+    = render 'menu_item_fields', f:builder
+  .links
+    = link_to_add_association 'Add Menu Item', f, :menu_items, class: "btn btn-primary pull-left btn-space"
+  .actions
+    = f.submit 'Save', class: 'btn btn-success pull-left btn-space'
+  .actions
+    = f.submit 'Cancel', :name => 'cancel', class: 'btn btn-danger pull-left'
