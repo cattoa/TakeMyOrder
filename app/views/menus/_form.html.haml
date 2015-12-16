@@ -42,9 +42,8 @@
           Description
         %th.col-lg-2
           Price
-
-    = f.fields_for :menu_items do |builder|
-      = render 'menu_item_fields', f:builder
+  = f.fields_for :menu_items, @menu.menu_items.sort_by(&:order) do |builder|
+    = render 'menu_item_fields', f:builder
   .links
     = link_to_add_association 'Add Menu Item', f, :menu_items, class: "btn btn-primary pull-left btn-space"
   .actions

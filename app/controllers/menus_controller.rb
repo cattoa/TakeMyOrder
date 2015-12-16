@@ -65,7 +65,7 @@ class MenusController < ApplicationController
   def destroy
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
+      format.html { redirect_to menus_url, notice: 'Menu was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -80,6 +80,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:name, :date_from, :date_to, :description)
+      params.require(:menu).permit(:name, :date_from, :date_to, :description, menu_items_attributes:[:id, :order, :code, :name, :description, :price])
     end
 end
