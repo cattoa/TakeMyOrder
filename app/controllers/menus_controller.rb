@@ -7,18 +7,6 @@ class MenusController < ApplicationController
     if params[:cancel] == 'Cancel'
       redirect_to menus_path
     end
-    if params[:save_new] == 'Save'
-      @menu = Menu.find(params[:id])
-      respond_to do |format|
-        if @menu.save
-          format.html { redirect_to 'menus/edit'}
-          format.json { render :edit, status: :created, location: @menu }
-        else
-          format.html { render :new }
-          format.json { render json: @menu.errors, status: :unprocessable_entity }
-        end
-      end
-    end
   end
 
   # GET /menus
@@ -92,6 +80,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:name, :date_from, :date_to, :description, menu_items_attributes:[:id, :order, :code, :name, :description, :price])
+      params.require(:menu).permit(:name, :date_from, :date_to, :description, menu_items_attributes:[:id, :order, :code, :name, :description, :price, :_destroy])
     end
 end

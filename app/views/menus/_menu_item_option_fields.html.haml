@@ -3,16 +3,11 @@
     %thead
       %tr
         %td.col-lg-1
-          = f.number_field :order, :class => 'form-control'
-        %td.col-lg-1
-          = f.text_field :code, :class=>'form-control'
+          = f.text_field :code, :class => 'form-control'
         %td.col-lg-3
           = f.text_field :name, :class=>'form-control'
-        %td.col-lg-5
+        %td.col-lg-7
           = f.text_area :description, :class=>'form-control'
         %td.col-lg-1
-          = f.text_field :price, :class=>'form-control'
-        %td.col-lg-1
           = link_to_remove_association "Delete", f, class: "btn btn-danger btn-space remove-item"
-          .links
-            = link_to_add_association "Add Options", f, :menu_item_options, class: "btn btn-primary"
+        
