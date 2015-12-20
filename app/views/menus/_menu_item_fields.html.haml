@@ -14,5 +14,5 @@
           = f.text_field :price, :class=>'form-control'
         %td.col-lg-1
           = link_to_remove_association "Delete", f, class: "btn btn-danger btn-space remove-item"
-  = f.fields_for :menu_items, @menu.menu_items.sort_by(&:order) do |builder|
-    = render 'menu_item_fields', f:builder
+  = f.fields_for :menu_item_options do |builder|
+    = render 'menu_item_option_fields', f:builder
